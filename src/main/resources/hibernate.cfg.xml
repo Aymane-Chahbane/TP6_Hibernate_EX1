@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+    <session-factory>
+
+        <!-- ── Base de données H2 en mémoire (identique au projet de référence) ── -->
+        <property name="hibernate.connection.driver_class">org.h2.Driver</property>
+        <property name="hibernate.connection.url">jdbc:h2:mem:gestion_stock;DB_CLOSE_DELAY=-1</property>
+        <property name="hibernate.connection.username">sa</property>
+        <property name="hibernate.connection.password"></property>
+
+        <!-- ── Dialecte H2 ── -->
+        <property name="hibernate.dialect">org.hibernate.dialect.H2Dialect</property>
+
+        <!-- ── DDL : crée les tables au démarrage, les supprime à l'arrêt ── -->
+        <property name="hibernate.hbm2ddl.auto">create-drop</property>
+
+        <!-- ── Logs SQL ── -->
+        <property name="hibernate.show_sql">true</property>
+        <property name="hibernate.format_sql">true</property>
+
+        <!-- ── Entités ── -->
+        <mapping class="ma.projet.classes.Categorie"/>
+        <mapping class="ma.projet.classes.Produit"/>
+        <mapping class="ma.projet.classes.Commande"/>
+        <mapping class="ma.projet.classes.LigneCommandeProduit"/>
+
+    </session-factory>
+</hibernate-configuration>
